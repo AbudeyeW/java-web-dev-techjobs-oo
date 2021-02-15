@@ -38,5 +38,12 @@ public class JobTest {
     public void testJobsForEquality(){
         assertNotEquals(identicalJob1.hashCode(),identicalJob2.hashCode());
     }
+    @Test
+    public void testJobsForToString(){
+        String testString = "\n" + "ID: " + identicalJob1.hashCode() + "\n" + "Name: " + identicalJob1.getName() + "\n" + "Employer: " + identicalJob1.getEmployer() + "\n" + "Location: " + identicalJob1.getLocation() + "\n" + "Position Type: " + identicalJob1.getPositionType() + "\n" + "Core Competency: " + identicalJob1.getCoreCompetency() + "\n";
+        assertEquals(testString,identicalJob1.toString());
 
+        String testStringBlank = "\n" + "ID: " + job1.hashCode() + "\n" + "Name: Data not available" + "\n" + "Employer: Data not available" + "\n" + "Location: Data not available"+ "\n" + "Position Type: Data not available" + "\n" + "Core Competency: Data not available" + "\n";
+        assertEquals(testStringBlank,job1.toString());
+    }
 }
