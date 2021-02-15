@@ -8,12 +8,17 @@ public class JobTest {
     Job job1;
     Job job2;
     Job job3;
+    Job identicalJob1;
+    Job identicalJob2;
     int delta = 1;
     @Before
     public void CreateJobObj(){
         job1 = new Job();
         job2 = new Job();
         job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
+        identicalJob1 = new Job("Full Stack Engineer", new Employer("Splitwise"), new Location("Rhode Island"), new PositionType("Web - Full Stack"), new CoreCompetency("Ruby"));
+        identicalJob2 = new Job("Full Stack Engineer", new Employer("Splitwise"), new Location("Rhode Island"), new PositionType("Web - Full Stack"), new CoreCompetency("Ruby"));
+
     }
     @Test
     public void testSettingJobId(){
@@ -29,4 +34,9 @@ public class JobTest {
         assertTrue(job3.getCoreCompetency() instanceof  CoreCompetency);
         assertTrue(job3.getPositionType() instanceof  PositionType);
     }
+    @Test
+    public void testJobsForEquality(){
+        assertNotEquals(identicalJob1.hashCode(),identicalJob2.hashCode());
+    }
+
 }
