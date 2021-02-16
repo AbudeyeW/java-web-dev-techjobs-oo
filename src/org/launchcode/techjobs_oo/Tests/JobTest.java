@@ -41,10 +41,11 @@ public class JobTest {
     }
     @Test
     public void testJobsForToString(){
+        String testNewLine = "\n" + "ID: " + identicalJob1.hashCode() + "\n" + "Name: " + identicalJob1.getName() + "\n" + "Employer: " + identicalJob1.getEmployer() + "\n" + "Location: " + identicalJob1.getLocation() + "\n" + "Position Type: " + identicalJob1.getPositionType() + "\n" + "Core Competency: " + identicalJob1.getCoreCompetency() + "\n";
+        assertEquals(testNewLine,identicalJob1.toString());
 
-
-        String testFakeString = "\n" + "ID: " + nonexistenJob.hashCode() + "\n" + "Name: " + nonexistenJob.getName() + "\n" + "Employer: " + nonexistenJob.getEmployer() + "\n" + "Location: " + nonexistenJob.getLocation() + "\n" + "Position Type: " + nonexistenJob.getPositionType() + "\n" + "Core Competency: " + nonexistenJob.getCoreCompetency() + "\n";
-        assertNotEquals(testFakeString,nonexistenJob.toString());
+        String testFakeString = "\n" + "ID: " + nonexistenJob.hashCode() + "\n" + "Name: " + nonexistenJob.getName() + "\n" + "Employer: " +"Data not available" + "\n" + "Location: " + nonexistenJob.getLocation() + "\n" + "Position Type: " + nonexistenJob.getPositionType() + "\n" + "Core Competency: " + nonexistenJob.getCoreCompetency() + "\n";
+        assertEquals(testFakeString,nonexistenJob.toString());
 
     }
 }
