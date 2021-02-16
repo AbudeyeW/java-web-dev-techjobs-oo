@@ -1,5 +1,6 @@
 package org.launchcode.techjobs_oo;
 
+import javax.naming.Name;
 import java.util.Objects;
 public class Job {
 
@@ -90,44 +91,44 @@ public class Job {
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
     }
+
     @Override
-    public String toString(){
-        String aString;
-        if(getName().equals("")){
-            aString = "\n" + "ID: " + hashCode()+ "\n" + "Name: Data not available";
-        }
-        else{
-            aString = "\n" + "ID: " + hashCode() + "\n" + "Name: " + getName();
-        }
+    public String toString() {
+            String aString;
+            if(getName().equals("")){
+                aString = "\n" + "ID: " + hashCode()+ "\n" + "Name: Data not available";
+            }
+            else{
+                aString = "\n" + "ID: " + hashCode() + "\n" + "Name: " + name;
+            }
 
-        if(getEmployer().getValue().equals("")){
-            aString = aString +"\n" + "Employer: Data not available";
-        }
-        else {
-            aString = aString + "\n" + "Employer: " + getEmployer();
-        }
+            if(getEmployer().getValue().equals("")){
+                aString = aString +"\n" + "Employer: Data not available";
+            }
+            else {
+                aString = aString + "\n" + "Employer: " + employer;
+            }
 
-        if(getLocation().getValue().equals("")){
-            aString = aString + "\n" + "Location: Data not available";
-        }
-        else {
-            aString = aString + "\n" + "Location: " + getLocation();
-        }
+            if(getLocation().getValue().equals("")){
+                aString = aString + "\n" + "Location: Data not available";
+            }
+            else {
+                aString = aString + "\n" + "Location: " + location;
+            }
 
-        if(getPositionType().getValue().equals("")){
-            aString = aString + "\n" + "Position Type: Data not available";
-        }
-        else {
-            aString = aString + "\n" + "Position Type: " + getPositionType();
-        }
+            if(getPositionType().getValue().equals("")){
+                aString = aString + "\n" + "Position Type: Data not available";
+            }
+            else {
+                aString = aString + "\n" + "Position Type: " + positionType;
+            }
 
-        if(getCoreCompetency().getValue().equals("")){
-            aString = aString + "\n" + "Core Competency: Data not available";
+            if(getCoreCompetency().getValue().equals("")){
+                aString = aString + "\n" + "Core Competency: Data not available";
+            }
+            else {
+                aString = aString + "\n" + "Core Competency: " + coreCompetency + "\n";
+            }
+            return aString;
         }
-        else {
-            aString = aString + "\n" + "Core Competency: " + getCoreCompetency() + "\n";
-        }
-        return aString;
-    }
-
 }

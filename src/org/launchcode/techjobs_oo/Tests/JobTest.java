@@ -10,6 +10,7 @@ public class JobTest {
     Job job3;
     Job identicalJob1;
     Job identicalJob2;
+    Job nonexistenJob;
     int delta = 1;
     @Before
     public void CreateJobObj(){
@@ -18,7 +19,7 @@ public class JobTest {
         job3 = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
         identicalJob1 = new Job("Full Stack Engineer", new Employer("Splitwise"), new Location("Rhode Island"), new PositionType("Web - Full Stack"), new CoreCompetency("Ruby"));
         identicalJob2 = new Job("Full Stack Engineer", new Employer("Splitwise"), new Location("Rhode Island"), new PositionType("Web - Full Stack"), new CoreCompetency("Ruby"));
-
+        nonexistenJob = new Job("Full Stack Engineer", new Employer(""), new Location("Rhode Island"), new PositionType("Web - Full Stack"), new CoreCompetency("Ruby"));
     }
     @Test
     public void testSettingJobId(){
@@ -40,10 +41,10 @@ public class JobTest {
     }
     @Test
     public void testJobsForToString(){
-        String testString = "\n" + "ID: " + identicalJob1.hashCode() + "\n" + "Name: " + identicalJob1.getName() + "\n" + "Employer: " + identicalJob1.getEmployer() + "\n" + "Location: " + identicalJob1.getLocation() + "\n" + "Position Type: " + identicalJob1.getPositionType() + "\n" + "Core Competency: " + identicalJob1.getCoreCompetency() + "\n";
-        assertEquals(testString,identicalJob1.toString());
 
-        String testStringBlank = "\n" + "ID: " + job1.hashCode() + "\n" + "Name: Data not available" + "\n" + "Employer: Data not available" + "\n" + "Location: Data not available"+ "\n" + "Position Type: Data not available" + "\n" + "Core Competency: Data not available" + "\n";
-        assertEquals(testStringBlank,job1.toString());
+
+        String testFakeString = "\n" + "ID: " + nonexistenJob.hashCode() + "\n" + "Name: " + nonexistenJob.getName() + "\n" + "Employer: " + nonexistenJob.getEmployer() + "\n" + "Location: " + nonexistenJob.getLocation() + "\n" + "Position Type: " + nonexistenJob.getPositionType() + "\n" + "Core Competency: " + nonexistenJob.getCoreCompetency() + "\n";
+        assertNotEquals(testFakeString,nonexistenJob.toString());
+
     }
 }
